@@ -11,6 +11,8 @@ export interface IUser extends Document {
   paymentTransactionIdIv?: string;
   paymentTransactionIdTag?: string;
   isActive: boolean;
+  resetToken?: string;
+  resetTokenExpiry?: Date;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -63,6 +65,14 @@ const UserSchema = new Schema<IUser>(
     isActive: {
       type: Boolean,
       default: false,
+    },
+    resetToken: {
+      type: String,
+      default: null,
+    },
+    resetTokenExpiry: {
+      type: Date,
+      default: null,
     },
   },
   { timestamps: true }

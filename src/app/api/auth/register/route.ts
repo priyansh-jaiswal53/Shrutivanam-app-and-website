@@ -50,19 +50,18 @@ export async function POST(req: NextRequest) {
 
     // Send welcome email to student
     await resend.emails.send({
-      from: "Shrutivanam <noreply@shrutivanam.com>",
+      from: process.env.EMAIL_FROM || "onboarding@resend.dev",
       to: email,
       subject: "Welcome to Shrutivanam — Registration Received",
       html: `
-        <div style="font-family: Georgia, serif; max-width: 600px; margin: 0 auto; background: #0d0b1e; color: #F5F0E8; padding: 40px; border-radius: 12px;">
-          <h1 style="color: #C9A84C; font-size: 28px; margin-bottom: 8px;">🙏 Namaste, ${name}!</h1>
-          <p style="color: #C8BFAD; line-height: 1.7;">Your registration at <strong>Shrutivanam</strong> has been received successfully.</p>
-          <div style="background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.3); border-radius: 8px; padding: 20px; margin: 24px 0;">
-            <p style="color: #E2C97E; font-weight: bold; margin: 0 0 8px;">Next Step: Complete Payment</p>
-            <p style="color: #C8BFAD; margin: 0; font-size: 14px;">Please complete your payment using the UPI QR code shown on the website. Once payment is confirmed by our team, your account will be activated within 24 hours.</p>
+        <div style="font-family: sans-serif; max-width: 500px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
+          <h2 style="color: #FF7F32; margin-bottom: 10px;">🙏 Namaste, ${name}!</h2>
+          <p style="color: #444; line-height: 1.5;">Your registration at <strong>Shrutivanam</strong> has been received.</p>
+          <div style="margin: 20px 0; padding: 15px; background-color: #FFF7ED; border-left: 4px solid #FF7F32;">
+            <p style="margin: 0; font-weight: bold; color: #FF7F32;">Next Step: Payment</p>
+            <p style="margin: 5px 0 0; font-size: 14px; color: #666;">Please complete your payment using the QR code on the website. Your account will be activated within 24 hours of confirmation.</p>
           </div>
-          <p style="color: #C8BFAD; font-size: 13px;">UPI ID: <strong style="color: #C9A84C;">${process.env.ADMIN_UPI_ID ?? "shrutivanam@upi"}</strong></p>
-          <p style="color: #C8BFAD60; font-size: 12px; margin-top: 40px;">Shrutivanam — Ancient Wisdom, Modern Learning</p>
+          <p style="font-size: 12px; color: #999;">Ancient Wisdom, Modern Learning</p>
         </div>
       `,
     });
@@ -70,7 +69,7 @@ export async function POST(req: NextRequest) {
     // Notify admin
     if (process.env.ADMIN_EMAIL) {
       await resend.emails.send({
-        from: "Shrutivanam <noreply@shrutivanam.com>",
+        from: process.env.EMAIL_FROM || "onboarding@resend.dev",
         to: process.env.ADMIN_EMAIL,
         subject: `New Registration: ${name} is awaiting payment approval`,
         html: `

@@ -41,8 +41,10 @@ export default function Footer() {
   const isInternalPage =
     pathname.startsWith("/dashboard") || 
     pathname.startsWith("/admin") ||
-    pathname === "/login" ||
-    pathname === "/register";
+    pathname.startsWith("/login") ||
+    pathname.startsWith("/register") ||
+    pathname.startsWith("/forgot-password") ||
+    pathname.startsWith("/reset-password");
 
   if (isInternalPage) return null;
 
