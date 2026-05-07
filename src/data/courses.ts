@@ -108,7 +108,7 @@ export const courses: Course[] = [
   },
   {
     slug: "philosophy",
-    title: { en: "Indian Philosophy", hi: "भारतीय दर्शन" },
+    title: { en: "Vedic Wisdom", hi: "भारतीय दर्शन" },
     description:
       "Explore timeless wisdom on the nature of the Self, karma, consciousness, and the purpose of human existence through the lens of Vedic philosophy.",
     longDescription:

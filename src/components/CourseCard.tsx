@@ -10,7 +10,7 @@ export default function CourseCard({ course }: CourseCardProps) {
   return (
     <Link
       href={`/courses/${course.slug}`}
-      className="group bg-white rounded-[32px] sm:rounded-[40px] p-6 sm:p-8 border border-[#EBDBCD] hover:border-[#FF7F32] transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl flex flex-col h-full"
+      className="group bg-white rounded-[32px] sm:rounded-[40px] p-5 sm:p-8 border border-[#EBDBCD] hover:border-[#FF7F32] transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl flex flex-col h-full"
       aria-label={`Learn more about ${course.title.en}`}
     >
       {/* Icon */}

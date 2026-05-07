@@ -31,7 +31,7 @@ const coursesLinks = [
   { href: "/courses/vedic-maths", label: "Vedic Mathematics" },
   { href: "/courses/yoga", label: "Yoga" },
   { href: "/courses/sanskrit", label: "Sanskrit" },
-  { href: "/courses/philosophy", label: "Indian Philosophy" },
+  { href: "/courses/philosophy", label: "Vedic Wisdom" },
 ];
 
 export default function Footer() {
@@ -49,9 +49,9 @@ export default function Footer() {
   if (isInternalPage) return null;
 
   return (
-    <footer className="bg-white border-t border-[#EBDBCD] pt-24 pb-12">
+    <footer className="bg-white border-t border-[#EBDBCD] pt-16 sm:pt-24 pb-10 sm:pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 lg:gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16 sm:mb-20">
           {/* Brand */}
           <div className="lg:col-span-5">
             <Link href="/" className="flex items-center gap-2 mb-8 group">
@@ -160,7 +160,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Shrutivanam. All rights reserved.
           </p>
           <p className="text-[#FF7F32] text-sm font-black italic">
-            &quot;सा विद्या या विमुक्तये&quot;
+            &quot;ज्ञानेन तु तदज्ञानं येषां नाशितमात्मनः&quot;
           </p>
         </div>
       </div>

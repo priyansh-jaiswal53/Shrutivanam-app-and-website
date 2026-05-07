@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Providers from "@/components/Providers";
+import GlobalLoader from "@/components/GlobalLoader";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -18,19 +19,22 @@ export const metadata: Metadata = {
     template: "%s | Shrutivanam",
   },
   description:
-    "Authentic Vedic learning for the modern world. Courses in Vedic Maths, Yoga, Sanskrit, and Indian Philosophy.",
+    "Authentic Vedic learning for the modern world. Courses in Vedic Maths, Yoga, Sanskrit, and Vedic Wisdom.",
   keywords: [
     "spiritual education for kids",
     "Vedic Maths online",
     "Sanskrit for kids",
-    "Indian philosophy",
+    "Vedic Wisdom",
   ],
   openGraph: {
     type: "website",
     siteName: "Shrutivanam",
     title: "Shrutivanam — Modern Spiritual Education",
     description:
-      "Authentic courses in Vedic Mathematics, Yoga, Sanskrit & Indian Philosophy",
+      "Authentic courses in Vedic Mathematics, Yoga, Sanskrit & Vedic Wisdom",
+  },
+  icons: {
+    icon: "/shrutivanam.logo.png",
   },
 };
 
@@ -45,6 +49,7 @@ export default function RootLayout({
       className={`${poppins.variable} h-full`}
     >
       <body className="min-h-full flex flex-col bg-[#FEF7ED] text-[#3B2E2A] antialiased overflow-x-hidden font-[family-name:var(--font-poppins)]">
+        <GlobalLoader />
         <Providers>
           <Navbar />
           <main className="flex-1">

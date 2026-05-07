@@ -7,7 +7,7 @@ const courseOptions = [
   "Vedic Mathematics",
   "Yoga",
   "Sanskrit",
-  "Indian Philosophy",
+  "Vedic Wisdom",
   "General Inquiry",
 ];
 

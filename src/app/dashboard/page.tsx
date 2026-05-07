@@ -61,7 +61,7 @@ export default async function DashboardPage() {
           {session?.user?.name}
         </h2>
         <p className="text-slate-600 italic text-sm" style={{ fontFamily: "var(--font-cormorant)" }}>
-          &ldquo;सा विद्या या विमुक्तये&rdquo; — That which liberates is true knowledge.
+          &ldquo;ज्ञानेन तु तदज्ञानं येषां नाशितमात्मनः&rdquo; — That which liberates is true knowledge.
         </p>
       </div>
 

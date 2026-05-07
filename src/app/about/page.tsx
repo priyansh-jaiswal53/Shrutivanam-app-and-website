@@ -5,7 +5,7 @@ import WhatsAppStrip from "@/components/WhatsAppStrip";
 import { Star, Heart, Lightbulb } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About Shrutivanam",
+  title: "About",
   description:
     "Learn about Shrutivanam's mission to bring authentic Vedic knowledge to modern learners. Meet our expert teachers from IISc Bangalore and IIT Guwahati.",
 };

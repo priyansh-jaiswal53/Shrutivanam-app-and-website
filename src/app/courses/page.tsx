@@ -4,14 +4,14 @@ import CourseCard from "@/components/CourseCard";
 import WhatsAppStrip from "@/components/WhatsAppStrip";
 
 export const metadata: Metadata = {
-  title: "All Courses",
+  title: "Courses",
   description:
-    "Explore Shrutivanam's courses: Vedic Mathematics online, Yoga and philosophy, Sanskrit for beginners, and Indian philosophy. Authentic Vedic learning.",
+    "Explore Shrutivanam's courses: Vedic Mathematics online, Yoga and philosophy, Sanskrit for beginners, and Vedic Wisdom. Authentic Vedic learning.",
   keywords: [
     "Vedic Maths course online",
     "Yoga philosophy course India",
     "Learn Sanskrit for beginners",
-    "Indian philosophy course",
+    "Vedic Wisdom course",
     "spiritual education platform",
   ],
 };

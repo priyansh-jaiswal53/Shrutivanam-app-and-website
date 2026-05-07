@@ -10,11 +10,12 @@ import { teachers } from "@/data/teachers";
 import CourseCard from "@/components/CourseCard";
 import WhatsAppStrip from "@/components/WhatsAppStrip";
 import FadeIn from "@/components/FadeIn";
+import HeroImages from "@/components/HeroImages";
 
 export const metadata: Metadata = {
-  title: "Shrutivanam — Putting Ancient Wisdom into Motion",
+  title: "Home",
   description:
-    "Discover authentic Vedic education at Shrutivanam. Courses in Vedic Mathematics, Yoga, Sanskrit, and Indian Philosophy.",
+    "Discover authentic Vedic education at Shrutivanam. Courses in Vedic Mathematics, Yoga, Sanskrit, and Vedic Wisdom.",
 };
 
 const whyPoints = [
@@ -44,17 +45,12 @@ const whyPoints = [
   },
 ];
 
-const stats = [
-  { icon: Trophy, label: "50+", desc: "Courses Completed" },
-  { icon: Users, label: "12K+", desc: "Active Happy Students" },
-  { icon: Target, label: "70+", desc: "Certified Expert Teachers" },
-];
 
 export default function HomePage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative pt-24 sm:pt-32 md:pt-40 pb-0 flex flex-col items-center overflow-hidden">
+      <section className="relative pt-20 sm:pt-32 md:pt-40 pb-0 flex flex-col items-center overflow-hidden">
         {/* Floating Background Icons */}
         <div className="absolute top-20 left-[10%] floating-element opacity-20 text-[#FF7F32] hidden sm:block">
           <Zap size={48} fill="currentColor" />
@@ -102,84 +98,22 @@ export default function HomePage() {
             </div>
           </FadeIn>
 
-          {/* Hero Images Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-end max-w-5xl mx-auto relative px-2 sm:px-4">
-            <FadeIn direction="right" className="hidden md:block">
-              <div className="relative aspect-[4/5] rounded-[48px] sm:rounded-[60px] overflow-hidden bg-[#7BBD8B]/20 border-4 border-white shadow-2xl rotate-[-3deg]">
-                <Image 
-                  src="/student_maths_1775934560279.png" 
-                  alt="Student Maths" 
-                  fill 
-                  className="object-cover"
-                />
-              </div>
-            </FadeIn>
-            
-            <FadeIn direction="up" delay={0.2}>
-              <div className="relative aspect-[4/5] rounded-[56px] sm:rounded-[80px] overflow-hidden bg-[#FF7F32]/10 border-4 border-white shadow-2xl z-20">
-                <Image 
-                  src="/student_yoga_1775934542751.png" 
-                  alt="Student Yoga" 
-                  fill 
-                  className="object-cover"
-                />
-              </div>
-            </FadeIn>
-
-            <FadeIn direction="left" delay={0.4} className="hidden md:block">
-              <div className="relative aspect-[4/5] rounded-[48px] sm:rounded-[60px] overflow-hidden bg-[#F9D048]/20 border-4 border-white shadow-2xl rotate-[3deg]">
-                <Image 
-                  src="/student_sanskrit_1775934575788.png" 
-                  alt="Student Sanskrit" 
-                  fill 
-                  className="object-cover"
-                />
-              </div>
-            </FadeIn>
-          </div>
+          {/* Hero Images Slideshow & Grid */}
+          <HeroImages />
         </div>
 
-        {/* Bottom Stats Bar */}
-        <div className="w-full bg-[#3B2E2A] mt-[-40px] sm:mt-[-60px] pt-16 sm:pt-24 pb-12 sm:pb-16 relative z-10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row flex-wrap justify-center sm:justify-between items-center gap-8 sm:gap-12">
-            {stats.map((item, i) => {
-              const Icon = item.icon;
-              return (
-                <div key={i} className="flex items-center gap-4 sm:gap-5 w-full sm:w-auto justify-center sm:justify-start">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#FF7F32] flex items-center justify-center text-white shadow-lg">
-                    <Icon size={24} className="sm:hidden" />
-                    <Icon size={28} className="hidden sm:block" />
-                  </div>
-                  <div className="text-left">
-                    <p className="text-2xl sm:text-3xl font-black text-white">{item.label}</p>
-                    <p className="text-xs sm:text-sm font-bold text-white/50">{item.desc}</p>
-                  </div>
-                </div>
-              );
-            })}
-            <div className="flex flex-wrap justify-center sm:justify-start -space-x-3 overflow-hidden p-2 w-full sm:w-auto">
-              {[1, 2, 3, 4].map((n) => (
-                <div key={n} className="inline-block h-10 w-10 rounded-full ring-2 ring-[#3B2E2A] bg-[#FF7F32] flex items-center justify-center text-[10px] font-bold text-white uppercase">
-                  U{n}
-                </div>
-              ))}
-              <div className="flex items-center justify-center h-10 w-10 text-[10px] sm:text-xs font-bold text-white/50 pl-4 uppercase">
-                +12k students
-              </div>
-            </div>
-          </div>
-        </div>
+
       </section>
 
       {/* ABOUT SECTION */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-24 px-4 sm:px-6 lg:px-8 mt-12 sm:mt-0">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 sm:gap-20 items-center">
             <FadeIn direction="right" className="relative">
               <div className="relative w-full aspect-square rounded-[72px] sm:rounded-[100px] overflow-hidden bg-white p-3 sm:p-4 shadow-xl">
                  <div className="absolute inset-0 bg-[#F9D048]/10 rounded-[72px] sm:rounded-[100px]" />
                  <Image 
-                  src="/student_sanskrit_1775934575788.png" 
+                  src="/sanskrit.webp" 
                   alt="Our Mission" 
                   fill 
                   className="object-cover rounded-[56px] sm:rounded-[80px]"
@@ -215,7 +149,7 @@ export default function HomePage() {
       </section>
 
       {/* COURSES PREVIEW */}
-      <section className="py-16 sm:py-24 bg-white border-y border-[#EBDBCD]">
+      <section className="py-12 sm:py-24 bg-white border-y border-[#EBDBCD]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 sm:gap-8 mb-10 sm:mb-16">
             <div className="max-w-xl">
@@ -237,7 +171,7 @@ export default function HomePage() {
       </section>
 
       {/* WHY CHOOSE US */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-[#FEF7ED]">
+      <section className="py-12 sm:py-24 px-4 sm:px-6 lg:px-8 bg-[#FEF7ED]">
         <div className="max-w-7xl mx-auto text-center mb-10 sm:mb-16">
            <p className="text-[#F9D048] font-black uppercase tracking-widest text-xs sm:text-sm mb-3 sm:mb-4">Why Shrutivanam</p>
            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#3B2E2A]">Learning that sticks</h2>
@@ -264,7 +198,7 @@ export default function HomePage() {
       </section>
 
       {/* TEACHERS PREVIEW */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto relative z-10">
           <FadeIn direction="up">
             <div className="text-center mb-10 sm:mb-16">

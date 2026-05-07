@@ -43,10 +43,10 @@ export const teachers: Teacher[] = [
   {
     slug: "priyanka",
     name: "Priyanka Gherani",
-    subject: "Indian Philosophy",
+    subject: "Vedic Wisdom",
     subjectHi: "भारतीय दर्शन",
     credentials: "Senior Analyst | Vedic Philosophy Scholar",
-    bio: "Priyanka brings a rare combination of analytical sharpness and spiritual depth to the study of Indian philosophy. Drawing from the Bhagavad Gita, Upanishads, and Bhakti traditions, she guides students from intellectual understanding to lived wisdom with clarity, warmth, and insight.",
+    bio: "Priyanka brings a rare combination of analytical sharpness and spiritual depth to the study of Vedic Wisdom. Drawing from the Bhagavad Gita, Upanishads, and Bhakti traditions, she guides students from intellectual understanding to lived wisdom with clarity, warmth, and insight.",
     photo: "/teachers/priyanka.png",
     courseSlug: "philosophy",
   },

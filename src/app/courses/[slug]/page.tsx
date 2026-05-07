@@ -3,9 +3,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { courses, getCourseBySlug } from "@/data/courses";
-import { teachers } from "@/data/teachers";
 import WhatsAppStrip from "@/components/WhatsAppStrip";
-import SectionDivider from "@/components/SectionDivider";
 import { CheckCircle, MessageCircle, ArrowLeft, Clock, BarChart2 } from "lucide-react";
 
 // Generate static paths for all 4 courses
@@ -47,8 +45,6 @@ export default async function CourseDetailPage({
   if (!course) {
     notFound();
   }
-
-  const teacher = teachers.find((t) => t.slug === course.teacherSlug);
   const waMessage = encodeURIComponent(
     `Namaste, I am interested in the ${course.title.en} course at Shrutivanam. Please provide more information.`
   );
@@ -159,39 +155,6 @@ export default async function CourseDetailPage({
 
             {/* Right: Teacher + CTA sidebar */}
             <div className="space-y-6">
-              {/* Teacher card */}
-              {teacher && (
-                <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
-                  <h3 className="font-[family-name:var(--font-cinzel)] font-bold text-slate-900 text-sm tracking-widest uppercase mb-5 border-b border-slate-100 pb-2">
-                    Your Teacher
-                  </h3>
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0 border-2 border-orange-200">
-                      <Image
-                        src={teacher.photo}
-                        alt={teacher.name}
-                        width={64}
-                        height={64}
-                        className="object-cover w-full h-full"
-                      />
-                    </div>
-                    <div>
-                      <p className="font-[family-name:var(--font-cinzel)] font-bold text-slate-900 text-sm mb-1">
-                        {teacher.name}
-                      </p>
-                      <p className="text-orange-600 font-semibold text-xs">{teacher.subject}</p>
-                      <p className="text-slate-500 text-xs mt-1 font-medium">
-                        {teacher.credentials}
-                      </p>
-                    </div>
-                  </div>
-                  <SectionDivider className="mb-4" />
-                  <p className="text-slate-600 text-xs leading-relaxed line-clamp-4 font-medium">
-                    {teacher.bio}
-                  </p>
-                </div>
-              )}
-
               {/* Inquiry CTA */}
               <div className="bg-white border border-slate-200 rounded-2xl p-6 text-center shadow-sm">
                 <p className="font-[family-name:var(--font-cormorant)] italic text-orange-600 font-bold text-lg mb-2">
