@@ -8,6 +8,7 @@ const images = [
   {
     src: "/maths.webp",
     alt: "Student Maths",
+    label: "Vedic Maths",
     bgClass: "bg-[#7BBD8B]/20",
     desktopRotate: "sm:-rotate-3",
     delay: 0,
@@ -15,6 +16,7 @@ const images = [
   {
     src: "/yoga.webp",
     alt: "Student Yoga",
+    label: "Yoga",
     bgClass: "bg-[#FF7F32]/10",
     desktopRotate: "sm:rotate-0",
     delay: 0.2,
@@ -22,6 +24,7 @@ const images = [
   {
     src: "/sanskrit.webp",
     alt: "Student Sanskrit",
+    label: "Sanskrit",
     bgClass: "bg-[#F9D048]/20",
     desktopRotate: "sm:rotate-3",
     delay: 0.4,
@@ -73,6 +76,9 @@ export default function HeroImages() {
                   sizes="(max-width: 640px) 60vw, 33vw"
                   priority
                 />
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm text-[10px] font-bold text-slate-800 px-3 py-1.5 rounded-full shadow-lg whitespace-nowrap">
+                  {img.label}
+                </div>
               </div>
             </div>
           );
@@ -92,6 +98,9 @@ export default function HeroImages() {
                 sizes="33vw"
                 priority
               />
+              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm text-sm font-bold text-slate-800 px-5 py-2 rounded-full shadow-xl whitespace-nowrap">
+                {img.label}
+              </div>
             </div>
           </FadeIn>
         ))}

@@ -78,9 +78,15 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           )}
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="p-1 hover:bg-slate-100 rounded-lg transition-colors"
+            className="p-1 hover:bg-slate-100 rounded-lg transition-colors hidden lg:block"
           >
             {sidebarOpen ? <ChevronLeft size={18} /> : <Menu size={18} />}
+          </button>
+          <button
+            onClick={() => setSidebarOpen(false)}
+            className="p-1 hover:bg-slate-100 rounded-lg transition-colors lg:hidden"
+          >
+            <ChevronLeft size={18} />
           </button>
         </div>
 
@@ -130,14 +136,14 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       </aside>
 
       {/* Main Content */}
-      <main className={`flex-1 transition-all duration-300 ${sidebarOpen ? "lg:ml-64" : "lg:ml-20"}`}>
+      <main className={`flex-1 transition-all duration-300 min-w-0 ${sidebarOpen ? "lg:ml-64" : "lg:ml-20"}`}>
         {/* Header */}
         <div className="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
           <div className="px-4 sm:px-6 py-4 flex items-center gap-3">
             <button
-              onClick={() => setSidebarOpen((prev) => !prev)}
+              onClick={() => setSidebarOpen(true)}
               className="lg:hidden p-2 rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-50"
-              aria-label="Toggle sidebar"
+              aria-label="Open sidebar"
             >
               <Menu size={18} />
             </button>
@@ -151,7 +157,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         </div>
 
         {/* Content */}
-        <div className="p-4 sm:p-6">
+        <div className="p-4 sm:p-6 overflow-x-auto">
           {children}
         </div>
       </main>

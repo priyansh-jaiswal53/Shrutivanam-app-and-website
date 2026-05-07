@@ -21,7 +21,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const { data: session, status } = useSession();
   const router = useRouter();
   const pathname = usePathname();
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(
+    typeof window !== "undefined" ? window.innerWidth >= 1024 : false
+  );
 
   useEffect(() => {
     if (status === "unauthenticated") router.push("/login");
@@ -40,11 +42,19 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   return (
     <div className="min-h-screen bg-slate-50 flex">
+      {/* Mobile Overlay */}
+      <div
+        className={`fixed inset-0 bg-black/30 z-30 lg:hidden transition-opacity ${
+          sidebarOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={() => setSidebarOpen(false)}
+      />
+      
       {/* Sidebar */}
       <aside
-        className={`${
-          sidebarOpen ? "w-64" : "w-20"
-        } bg-white border-r border-slate-200 transition-all duration-300 fixed left-0 top-0 bottom-0 z-40 flex flex-col`}
+        className={`bg-white border-r border-slate-200 transition-all duration-300 fixed left-0 top-0 bottom-0 z-40 flex flex-col w-72 max-w-[85vw] lg:max-w-none ${
+          sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
+        } ${sidebarOpen ? "lg:w-64" : "lg:w-20"}`}
       >
         {/* Header */}
         <div className="p-4 border-b border-slate-200 flex items-center justify-between">
@@ -70,9 +80,15 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           )}
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="p-1 hover:bg-slate-100 rounded-lg transition-colors"
+            className="p-1 hover:bg-slate-100 rounded-lg transition-colors hidden lg:block"
           >
             {sidebarOpen ? <ChevronLeft size={18} /> : <Menu size={18} />}
+          </button>
+          <button
+            onClick={() => setSidebarOpen(false)}
+            className="p-1 hover:bg-slate-100 rounded-lg transition-colors lg:hidden"
+          >
+            <ChevronLeft size={18} />
           </button>
         </div>
 
@@ -85,6 +101,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={() => {
+                  if (typeof window !== "undefined" && window.innerWidth < 1024) {
+                    setSidebarOpen(false);
+                  }
+                }}
                 className={`flex items-center gap-3 px-4 py-2.5 rounded-lg transition-colors ${
                   isActive
                     ? "bg-orange-100 text-orange-700"
@@ -117,19 +138,28 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       </aside>
 
       {/* Main Content */}
-      <main className={`${sidebarOpen ? "ml-64" : "ml-20"} flex-1 transition-all duration-300`}>
+      <main className={`flex-1 transition-all duration-300 min-w-0 ${sidebarOpen ? "lg:ml-64" : "lg:ml-20"}`}>
         {/* Header */}
         <div className="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
-          <div className="px-6 py-4">
-            <h1 className="text-2xl font-bold text-slate-900" style={{ fontFamily: "var(--font-cinzel)" }}>
-              Admin Management
-            </h1>
-            <p className="text-slate-500 text-sm mt-1">Control Center & Organization</p>
+          <div className="px-4 sm:px-6 py-4 flex items-center gap-3">
+            <button
+              onClick={() => setSidebarOpen(true)}
+              className="lg:hidden p-2 rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-50"
+              aria-label="Open sidebar"
+            >
+              <Menu size={18} />
+            </button>
+            <div>
+              <h1 className="text-xl sm:text-2xl font-bold text-slate-900" style={{ fontFamily: "var(--font-cinzel)" }}>
+                Admin Management
+              </h1>
+              <p className="text-slate-500 text-xs sm:text-sm mt-1">Control Center & Organization</p>
+            </div>
           </div>
         </div>
 
         {/* Content */}
-        <div className="p-6">
+        <div className="p-4 sm:p-6 overflow-x-auto">
           {children}
         </div>
       </main>

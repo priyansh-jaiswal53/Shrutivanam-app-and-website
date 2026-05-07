@@ -11,6 +11,7 @@ import CourseCard from "@/components/CourseCard";
 import WhatsAppStrip from "@/components/WhatsAppStrip";
 import FadeIn from "@/components/FadeIn";
 import HeroImages from "@/components/HeroImages";
+import VedicCampSection from "@/components/VedicCampSection";
 
 export const metadata: Metadata = {
   title: { absolute: "Shrutivanam" },
@@ -101,7 +102,7 @@ export default function HomePage() {
 
           <FadeIn direction="up" delay={0.4}>
             <div className="flex items-center justify-center mb-12 sm:mb-16 w-full">
-              <Link href="/courses" className="btn-primary w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg shadow-2xl shadow-orange-200 text-center">
+              <Link href="/register" className="btn-primary w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg shadow-2xl shadow-orange-200 text-center">
                 Start Learning Now
               </Link>
             </div>
@@ -113,6 +114,9 @@ export default function HomePage() {
 
 
       </section>
+
+      {/* VEDIC SUMMER CAMP */}
+      <VedicCampSection />
 
       {/* ABOUT SECTION */}
       <section className="py-12 sm:py-24 px-4 sm:px-6 lg:px-8 mt-12 sm:mt-0">
@@ -157,27 +161,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* COURSES PREVIEW */}
-      <section className="py-12 sm:py-24 bg-white border-y border-[#EBDBCD]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 sm:gap-8 mb-10 sm:mb-16">
-            <div className="max-w-xl">
-              <p className="text-[#7BBD8B] font-black uppercase tracking-widest text-xs sm:text-sm mb-3 sm:mb-4">Our Programs</p>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#3B2E2A] mb-3 sm:mb-4">Foundation for Life</h2>
-              <p className="text-[#635A56] text-base sm:text-lg font-medium">Four core subjects, deeply researched and mastery-focused.</p>
-            </div>
-            <Link href="/courses" className="btn-primary w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 mb-0 sm:mb-2 text-center">View All Programs</Link>
-          </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {courses.map((course, i) => (
-              <FadeIn key={course.slug} delay={i * 0.1} direction="up">
-                <CourseCard course={course} />
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* WHY CHOOSE US */}
       <section className="py-12 sm:py-24 px-4 sm:px-6 lg:px-8 bg-[#FEF7ED]">
@@ -235,18 +219,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <FadeIn direction="up">
-            <div className="text-center mt-16">
-              <Link
-                href="/about#teachers"
-                id="teachers-view-all"
-                className="btn-outline px-8 py-3 rounded-full text-sm font-semibold tracking-wider inline-flex items-center gap-2"
-              >
-                View Faculty Backgrounds
-                <ArrowRight size={16} />
-              </Link>
-            </div>
-          </FadeIn>
+
         </div>
       </section>
 

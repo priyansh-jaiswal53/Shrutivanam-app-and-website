@@ -121,61 +121,12 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-orange-50">
-      <div className="max-w-6xl mx-auto px-4 py-12 grid lg:grid-cols-2 gap-10 items-center">
-        <div className="order-2 lg:order-1">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 rounded-xl bg-orange-600 text-white flex items-center justify-center font-bold shadow-sm">
-              <Image
-                src="/shrutivanam.logo.png"
-                alt="Shrutivanam logo"
-                width={28}
-                height={28}
-                className="w-7 h-7 object-contain"
-              />
-            </div>
-            <div>
-              <Image
-                src="/shrutivanam.txt.png"
-                alt="Shrutivanam"
-                width={150}
-                height={40}
-                className="h-8 w-auto object-contain mb-1"
-              />
-              <p className="text-xs text-slate-500">Ancient Wisdom, Modern Learning</p>
-            </div>
-          </div>
-          <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">
-            A calm, focused space for lifelong learning.
-          </h1>
-          <p className="text-sm text-slate-600 leading-relaxed mb-8">
-            Join a community devoted to spiritual education, guided practice, and timeless knowledge.
-            Your journey starts with a simple registration.
-          </p>
-          <div className="relative max-w-sm">
-            <div className="rounded-3xl border border-slate-200 bg-white/80 p-6 shadow-sm">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center">
-                  <GraduationCap size={20} />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-slate-800">Structured Courses</p>
-                  <p className="text-xs text-slate-500">Guided steps, clear progress.</p>
-                </div>
-              </div>
-              <div className="h-2 rounded-full bg-slate-100 overflow-hidden">
-                <div className="h-full w-2/3 bg-orange-500 rounded-full" />
-              </div>
-            </div>
-          </div>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-orange-50 flex items-center justify-center p-4 py-12">
+      <div className="w-full max-w-md relative rounded-3xl bg-white border border-slate-200 shadow-xl overflow-hidden">
+        <div className="h-20 bg-orange-600 rounded-b-[2.5rem]" />
+        <div className="absolute left-1/2 -translate-x-1/2 top-9 w-16 h-16 rounded-full bg-white border border-orange-100 shadow flex items-center justify-center text-orange-600">
+          <GraduationCap size={28} />
         </div>
-
-        <div className="order-1 lg:order-2">
-          <div className="relative rounded-3xl bg-white border border-slate-200 shadow-xl overflow-hidden">
-            <div className="h-20 bg-orange-600 rounded-b-[2.5rem]" />
-            <div className="absolute left-1/2 -translate-x-1/2 top-9 w-16 h-16 rounded-full bg-white border border-orange-100 shadow flex items-center justify-center text-orange-600">
-              <GraduationCap size={28} />
-            </div>
             <div className="pt-14 px-6 pb-6">
               <div className="text-center mb-5">
                 <p className="text-xs uppercase tracking-widest text-slate-500">Register</p>
@@ -364,8 +315,6 @@ export default function RegisterPage() {
               )}
             </div>
           </div>
-        </div>
-      </div>
     </div>
   );
 }

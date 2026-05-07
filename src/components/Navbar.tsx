@@ -309,6 +309,14 @@ export default function Navbar() {
                   <p className="text-[10px] text-[#A89F9B] tracking-widest uppercase mb-1 font-bold">Profile</p>
                   <p className="text-sm font-black text-[#3B2E2A] truncate">{session.user.name}</p>
                 </div>
+                <Link
+                  href={isAdmin ? "/admin" : "/dashboard"}
+                  onClick={() => setMenuOpen(false)}
+                  className="w-full py-4 flex items-center justify-center gap-2 rounded-2xl font-bold text-white bg-[#FF7F32] hover:bg-[#E86D24] shadow-lg shadow-orange-200 transition-all"
+                >
+                  {isAdmin ? <Shield size={18} /> : <LayoutDashboard size={18} />}
+                  {isAdmin ? "Admin Dashboard" : "Go to Dashboard"}
+                </Link>
                 <button
                   onClick={() => signOut({ callbackUrl: "/" })}
                   className="w-full py-4 flex items-center justify-center gap-2 rounded-2xl font-bold text-red-500 bg-red-50 hover:bg-red-100 transition-colors"
