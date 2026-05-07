@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { 
   ArrowRight, BookOpen, Users, Sparkles, Globe, 
-  Target, Zap, Trophy, Heart, Star
+  Target, Zap, Trophy, Heart, Star, CheckCircle
 } from "lucide-react";
 import { courses } from "@/data/courses";
 import { teachers } from "@/data/teachers";
@@ -13,7 +13,7 @@ import FadeIn from "@/components/FadeIn";
 import HeroImages from "@/components/HeroImages";
 
 export const metadata: Metadata = {
-  title: "Home",
+  title: { absolute: "Shrutivanam" },
   description:
     "Discover authentic Vedic education at Shrutivanam. Courses in Vedic Mathematics, Yoga, Sanskrit, and Vedic Wisdom.",
 };
@@ -50,7 +50,7 @@ export default function HomePage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative pt-20 sm:pt-32 md:pt-40 pb-0 flex flex-col items-center overflow-hidden">
+      <section className="relative pt-32 sm:pt-40 md:pt-48 pb-0 flex flex-col items-center overflow-hidden">
         {/* Floating Background Icons */}
         <div className="absolute top-20 left-[10%] floating-element opacity-20 text-[#FF7F32] hidden sm:block">
           <Zap size={48} fill="currentColor" />
@@ -64,6 +64,18 @@ export default function HomePage() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center z-10">
           <FadeIn direction="up">
+            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white border border-[#EBDBCD] shadow-sm mb-6 sm:mb-8">
+              <Image 
+                src="/shrutivanam.logo.png" 
+                alt="Shrutivanam Logo" 
+                width={20} 
+                height={20} 
+                className="w-5 h-5 object-contain"
+              />
+              <span className="text-[#FF7F32] font-black text-[10px] sm:text-sm tracking-widest uppercase">
+                Welcome to Shrutivanam
+              </span>
+            </div>
             <h1 className="text-3xl sm:text-5xl md:text-7xl font-black text-[#3B2E2A] leading-tight mb-5 sm:mb-6">
               Putting your <span className="title-underline">Tradition</span> in <br className="hidden md:block" />
               great motion
@@ -74,7 +86,7 @@ export default function HomePage() {
             <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mb-8 sm:mb-10 text-xs sm:text-sm font-bold text-[#635A56]">
               <div className="flex items-center gap-2">
                 <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center text-green-600">✓</div>
-                No Prior Prep
+                No Prerequisites
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center text-green-600">✓</div>
@@ -88,13 +100,10 @@ export default function HomePage() {
           </FadeIn>
 
           <FadeIn direction="up" delay={0.4}>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-12 sm:mb-16 w-full">
+            <div className="flex items-center justify-center mb-12 sm:mb-16 w-full">
               <Link href="/courses" className="btn-primary w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg shadow-2xl shadow-orange-200 text-center">
                 Start Learning Now
               </Link>
-              <p className="max-w-[320px] text-xs sm:text-sm font-semibold text-[#A89F9B] leading-relaxed text-center sm:text-center">
-                We just don&apos;t give our students only lecture but real life experiences.
-              </p>
             </div>
           </FadeIn>
 
@@ -215,9 +224,10 @@ export default function HomePage() {
               <p className="text-[#3B2E2A] text-xs font-black uppercase tracking-widest mb-6">
                 Faculty Backgrounds
               </p>
-              <ul className="space-y-3">
+              <ul className="space-y-4">
                 {Array.from(new Set(teachers.map((teacher) => teacher.credentials))).map((credential) => (
-                  <li key={credential} className="text-[#635A56] text-sm md:text-base font-semibold">
+                  <li key={credential} className="text-[#635A56] text-sm md:text-base font-semibold flex items-center gap-3">
+                    <CheckCircle className="text-[#7BBD8B] shrink-0" size={18} />
                     {credential}
                   </li>
                 ))}
